@@ -5,10 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,8 +18,10 @@ public class TestIterator {
 
   @BeforeEach
   public void setUp() throws Exception {
-    list = new ArrayList<Integer>();
+    list = new LinkedList<Integer>();
+    // list = new ArrayList<Integer>();
     // TODO Question: Also try with a LinkedList - does it make any difference?
+    //
   }
 
   @AfterEach
@@ -78,10 +78,12 @@ public class TestIterator {
         i.remove(); // TODO Question: What happens if you use list.remove(Integer.valueOf(77))?
       }
     }
+    // Using this method will remove the number 77 from the list
     // TODO using assertEquals and List.of, express which values are left in the list
     // See TestList.java for examples of how to use List.of; also see the Java List
     // interface for more information
-    fail("Not yet implemented"); // remove this line when done
+    assertEquals(List.of(33, 44, 55, 66), list);
+     // remove this line when done
   }
 
   @Test
